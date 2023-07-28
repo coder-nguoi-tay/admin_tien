@@ -123,7 +123,22 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="">
-                            <test></test>
+                            <test
+                                :data="{{ json_encode([
+                                    'countPaymentMoth1' => $countPaymentMoth1->price ?? 0,
+                                    'countPaymentMoth2' => $countPaymentMoth2,
+                                    'countPaymentMoth3' => $countPaymentMoth3,
+                                    'countPaymentMoth4' => $countPaymentMoth4,
+                                    'countPaymentMoth5' => $countPaymentMoth5,
+                                    'countPaymentMoth6' => $countPaymentMoth6,
+                                    'countPaymentMoth7' => $countPaymentMoth7,
+                                    'countPaymentMoth8' => $countPaymentMoth8,
+                                    'countPaymentMoth9' => $countPaymentMoth9,
+                                    'countPaymentMoth10' => $countPaymentMoth10,
+                                    'countPaymentMoth11' => $countPaymentMoth11,
+                                    'countPaymentMoth12' => $countPaymentMoth12,
+                                ]) }}">
+                            </test>
                         </div>
                     </div>
                 </div>
@@ -149,7 +164,7 @@
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-pie pt-4 pb-2">

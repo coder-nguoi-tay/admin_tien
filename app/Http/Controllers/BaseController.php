@@ -15,7 +15,7 @@ class BaseController extends Controller
         return PaymentHistoryEmployer::where(function ($q) use ($request, $date) {
             $q->whereMonth('created_at', $request)
                 ->whereYear('created_at', $date);
-        })->first();
+        })->get();
     }
     public function getNewMouth($request, $year)
     {

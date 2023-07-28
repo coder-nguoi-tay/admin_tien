@@ -30,8 +30,61 @@ ChartJS.register(
 export default {
   name: "BarChart",
   components: { Line },
+  props: ["data"],
+  created() {
+    if (this.data) {
+      (this.countPaymentMoth1 = this.data.countPaymentMoth1.length
+        ? this.fomart(this.data.countPaymentMoth1)
+        : 0),
+        (this.countPaymentMoth2 = this.data.countPaymentMoth2
+          ? this.fomart(this.data.countPaymentMoth2)
+          : 0),
+        (this.countPaymentMoth3 = this.data.countPaymentMoth3
+          ? this.fomart(this.data.countPaymentMoth3)
+          : 0),
+        (this.countPaymentMoth4 = this.data.countPaymentMoth4
+          ? this.fomart(this.data.countPaymentMoth4)
+          : 0),
+        (this.countPaymentMoth5 = this.data.countPaymentMoth5
+          ? this.fomart(this.data.countPaymentMoth5)
+          : 0),
+        (this.countPaymentMoth6 = this.data.countPaymentMoth6
+          ? this.fomart(this.data.countPaymentMoth6)
+          : 0),
+        (this.countPaymentMoth7 = this.data.countPaymentMoth7
+          ? this.fomart(this.data.countPaymentMoth7)
+          : 0),
+        (this.countPaymentMoth8 = this.data.countPaymentMoth8
+          ? this.fomart(this.data.countPaymentMoth8)
+          : 0),
+        (this.countPaymentMoth9 = this.data.countPaymentMoth9
+          ? this.fomart(this.data.countPaymentMoth9)
+          : 0),
+        (this.countPaymentMoth10 = this.data.countPaymentMoth10
+          ? this.fomart(this.data.countPaymentMoth10)
+          : 0),
+        (this.countPaymentMoth11 = this.data.countPaymentMoth11
+          ? this.fomart(this.data.countPaymentMoth11)
+          : 0),
+        (this.countPaymentMoth12 = this.data.countPaymentMoth12
+          ? this.fomart(this.data.countPaymentMoth12)
+          : 0);
+    }
+  },
   data() {
     return {
+      countPaymentMoth1: 0,
+      countPaymentMoth2: 0,
+      countPaymentMoth3: 0,
+      countPaymentMoth4: 0,
+      countPaymentMoth5: 0,
+      countPaymentMoth6: 0,
+      countPaymentMoth7: 0,
+      countPaymentMoth8: 0,
+      countPaymentMoth9: 0,
+      countPaymentMoth10: 0,
+      countPaymentMoth11: 0,
+      countPaymentMoth12: 0,
       chartData: {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
         datasets: [
@@ -49,8 +102,18 @@ export default {
             pointHitRadius: 10,
             pointBorderWidth: 2,
             data: [
-              0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000,
-              25000, 40000,
+              this.countPaymentMoth1,
+              this.countPaymentMoth2,
+              this.countPaymentMoth3,
+              this.countPaymentMoth4,
+              this.countPaymentMoth5,
+              this.countPaymentMoth6,
+              this.countPaymentMoth7,
+              this.countPaymentMoth8,
+              this.countPaymentMoth9,
+              this.countPaymentMoth10,
+              this.countPaymentMoth11,
+              this.countPaymentMoth12,
             ],
           },
         ],
@@ -59,6 +122,11 @@ export default {
         responsive: true,
       },
     };
+  },
+  methods: {
+    fomart(data) {
+      console.log(data[0]['price']);
+    },
   },
 };
 </script>
