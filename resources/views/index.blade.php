@@ -125,18 +125,18 @@
                         <div class="">
                             <test
                                 :data="{{ json_encode([
-                                    'countPaymentMoth1' => $countPaymentMoth1->price ?? 0,
-                                    'countPaymentMoth2' => $countPaymentMoth2,
-                                    'countPaymentMoth3' => $countPaymentMoth3,
-                                    'countPaymentMoth4' => $countPaymentMoth4,
-                                    'countPaymentMoth5' => $countPaymentMoth5,
-                                    'countPaymentMoth6' => $countPaymentMoth6,
-                                    'countPaymentMoth7' => $countPaymentMoth7,
-                                    'countPaymentMoth8' => $countPaymentMoth8,
-                                    'countPaymentMoth9' => $countPaymentMoth9,
-                                    'countPaymentMoth10' => $countPaymentMoth10,
-                                    'countPaymentMoth11' => $countPaymentMoth11,
-                                    'countPaymentMoth12' => $countPaymentMoth12,
+                                    'countPaymentMoth1' => $countPaymentMoth1 ?? 0,
+                                    'countPaymentMoth2' => $countPaymentMoth2 ?? 0,
+                                    'countPaymentMoth3' => $countPaymentMoth3 ?? 0,
+                                    'countPaymentMoth4' => $countPaymentMoth4 ?? 0,
+                                    'countPaymentMoth5' => $countPaymentMoth5 ?? 0,
+                                    'countPaymentMoth6' => $countPaymentMoth6 ?? 0,
+                                    'countPaymentMoth7' => $countPaymentMoth7 ?? 0,
+                                    'countPaymentMoth8' => $countPaymentMoth8 ?? 0,
+                                    'countPaymentMoth9' => $countPaymentMoth9 ?? 0,
+                                    'countPaymentMoth10' => $countPaymentMoth10 ?? 0,
+                                    'countPaymentMoth11' => $countPaymentMoth11 ?? 0,
+                                    'countPaymentMoth12' => $countPaymentMoth12 ?? 0,
                                 ]) }}">
                             </test>
                         </div>

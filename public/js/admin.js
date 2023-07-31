@@ -21885,10 +21885,10 @@ chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register(chart_js__WEBPACK_IMPORTED_
     Line: vue_chartjs__WEBPACK_IMPORTED_MODULE_2__.Line
   },
   props: ["data"],
-  created: function created() {
-    if (this.data) {
-      this.countPaymentMoth1 = this.data.countPaymentMoth1.length ? this.fomart(this.data.countPaymentMoth1) : 0, this.countPaymentMoth2 = this.data.countPaymentMoth2 ? this.fomart(this.data.countPaymentMoth2) : 0, this.countPaymentMoth3 = this.data.countPaymentMoth3 ? this.fomart(this.data.countPaymentMoth3) : 0, this.countPaymentMoth4 = this.data.countPaymentMoth4 ? this.fomart(this.data.countPaymentMoth4) : 0, this.countPaymentMoth5 = this.data.countPaymentMoth5 ? this.fomart(this.data.countPaymentMoth5) : 0, this.countPaymentMoth6 = this.data.countPaymentMoth6 ? this.fomart(this.data.countPaymentMoth6) : 0, this.countPaymentMoth7 = this.data.countPaymentMoth7 ? this.fomart(this.data.countPaymentMoth7) : 0, this.countPaymentMoth8 = this.data.countPaymentMoth8 ? this.fomart(this.data.countPaymentMoth8) : 0, this.countPaymentMoth9 = this.data.countPaymentMoth9 ? this.fomart(this.data.countPaymentMoth9) : 0, this.countPaymentMoth10 = this.data.countPaymentMoth10 ? this.fomart(this.data.countPaymentMoth10) : 0, this.countPaymentMoth11 = this.data.countPaymentMoth11 ? this.fomart(this.data.countPaymentMoth11) : 0, this.countPaymentMoth12 = this.data.countPaymentMoth12 ? this.fomart(this.data.countPaymentMoth12) : 0;
-    }
+  created: function created() {},
+  mounted: function mounted() {
+    this.countPaymentMoth1 = this.data.countPaymentMoth1;
+    this.countPaymentMoth7 = this.data.countPaymentMoth7;
   },
   data: function data() {
     return {
@@ -21926,11 +21926,6 @@ chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register(chart_js__WEBPACK_IMPORTED_
         responsive: true
       }
     };
-  },
-  methods: {
-    fomart: function fomart(data) {
-      console.log(data[0]['price']);
-    }
   }
 });
 

@@ -24,7 +24,6 @@ class DashboardController extends BaseController
         // tong user
         $TotalUser  =  User::query()->count();
         // số lượng bv
-
         $totalJob = Job::query()->count();
         return view('index', [
             'totalPrice' => $totalPrice,
