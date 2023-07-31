@@ -54,3 +54,7 @@ Route::name('package.')->prefix('package')->group(function () {
     Route::get('/destroy/{id}', [PackageController::class, 'destroy'])->name('destroy');
 });
 Route::resource('news', NewsController::class);
+Route::name('news.')->prefix('news')->group(function () {
+    Route::post('/update/{id}', [NewsController::class, 'update'])->name('update');
+    Route::get('/destroy/{id}', [NewsController::class, 'destroy'])->name('destroy');
+});

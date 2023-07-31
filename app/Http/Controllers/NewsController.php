@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewsRequest;
+use App\Models\Majors;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,7 @@ class NewsController extends Controller
     public function index()
     {
         $new = News::query()->with('majors')->get();
-        return view('news.index',[
+        return view('news.index', [
             'title' => 'Danh sách tin tức',
             'news' => $new,
         ]);
@@ -28,7 +30,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('news.create', [
+            'majors' => Majors::query()->get(),
+            'title' => 'Đăng tin tức',
+        ]);
     }
 
     /**
@@ -37,9 +42,22 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsRequest $request)
     {
-        //
+        try {
+            $new = new News();
+            if ($request->hasFile('new_image')) {
+                $new->new_image = $request->new_image->storeAs('images/cv', $request->new_image->hashName());
+            }
+            $new->title = $request->title;
+            $new->describe = $request->describe;
+            $new->majors_id = $request->majors_id;
+            $new->status = $request->status;
+            $new->save();
+            return redirect()->route('news.index');
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
     }
 
     /**
@@ -61,7 +79,11 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('news.edit', [
+            'title' => 'Chỉ sửa  tin tức',
+            'majors' => Majors::query()->get(),
+            'new' => News::query()->find($id)
+        ]);
     }
 
     /**
@@ -71,9 +93,22 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NewsRequest $request, $id)
     {
-        //
+        try {
+            $new = News::query()->find($id);
+            if ($request->hasFile('new_image')) {
+                $new->new_image = $request->new_image->storeAs('images/cv', $request->new_image->hashName());
+            }
+            $new->title = $request->title;
+            $new->describe = $request->describe;
+            $new->majors_id = $request->majors_id;
+            $new->status = $request->status;
+            $new->save();
+            return redirect()->route('news.index');
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
     }
 
     /**
@@ -84,6 +119,7 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        News::query()->delete($id);
+        return back();
     }
 }

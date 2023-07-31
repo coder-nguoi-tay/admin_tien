@@ -15,6 +15,7 @@ class News extends Model
         'majors_id',
         'new_image',
         'describe',
+        'status',
     ];
     public function majors()
     {
