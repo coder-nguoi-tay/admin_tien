@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\SeekerController;
 use Illuminate\Support\Facades\Route;
@@ -52,4 +53,4 @@ Route::name('package.')->prefix('package')->group(function () {
     Route::post('/update/{id}', [PackageController::class, 'update'])->name('update');
     Route::get('/destroy/{id}', [PackageController::class, 'destroy'])->name('destroy');
 });
-
+Route::resource('news', NewsController::class);

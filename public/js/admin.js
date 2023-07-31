@@ -21885,10 +21885,8 @@ chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register(chart_js__WEBPACK_IMPORTED_
     Line: vue_chartjs__WEBPACK_IMPORTED_MODULE_2__.Line
   },
   props: ["data"],
-  created: function created() {},
-  mounted: function mounted() {
-    this.countPaymentMoth1 = this.data.countPaymentMoth1;
-    this.countPaymentMoth7 = this.data.countPaymentMoth7;
+  created: function created() {
+    console.log(this.data);
   },
   data: function data() {
     return {
@@ -21907,7 +21905,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register(chart_js__WEBPACK_IMPORTED_
       chartData: {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
         datasets: [{
-          label: "Doanh thu",
+          label: this.data.payment == 1 ? "Bài  viết" : "Doanh thu",
           lineTension: 0.3,
           backgroundColor: "rgba(78, 115, 223, 0.05)",
           borderColor: "rgba(78, 115, 223, 1)",
@@ -21919,7 +21917,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register(chart_js__WEBPACK_IMPORTED_
           pointHoverBorderColor: "rgba(78, 115, 223, 1)",
           pointHitRadius: 10,
           pointBorderWidth: 2,
-          data: [this.countPaymentMoth1, this.countPaymentMoth2, this.countPaymentMoth3, this.countPaymentMoth4, this.countPaymentMoth5, this.countPaymentMoth6, this.countPaymentMoth7, this.countPaymentMoth8, this.countPaymentMoth9, this.countPaymentMoth10, this.countPaymentMoth11, this.countPaymentMoth12]
+          data: [this.data.countPaymentMoth1, this.data.countPaymentMoth2, this.data.countPaymentMoth3, this.data.countPaymentMoth4, this.data.countPaymentMoth5, this.data.countPaymentMoth6, this.data.countPaymentMoth7, this.data.countPaymentMoth8, this.data.countPaymentMoth9, this.data.countPaymentMoth10, this.data.countPaymentMoth11, this.data.countPaymentMoth12]
         }]
       },
       chartOptions: {
@@ -59607,7 +59605,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({});
 
-app.component('test', _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+app.component('chart-payment', _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+app.component('chart-new-job', _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
 app.mount('#app');
 })();
 

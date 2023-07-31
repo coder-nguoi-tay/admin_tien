@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\KeyUserSearch;
 use App\Models\PaymentHistoryEmployer;
 use App\Models\User;
 use Carbon\Carbon;
@@ -25,11 +26,14 @@ class DashboardController extends BaseController
         $TotalUser  =  User::query()->count();
         // số lượng bv
         $totalJob = Job::query()->count();
+        // từ khóa ttimf kiếm
+        $keySearch = KeyUserSearch::query()->get();
         return view('index', [
             'totalPrice' => $totalPrice,
             'totalPriceOnDay' => $totalPriceOnDay,
             'TotalUser' => $TotalUser,
             'totalJob' => $totalJob,
+            'keySearch' => $keySearch,
             'countPaymentMoth1' => $this->getPaymentMouth(1, $request->date_payment),
             'countPaymentMoth2' => $this->getPaymentMouth(2, $request->date_payment),
             'countPaymentMoth3' => $this->getPaymentMouth(3, $request->date_payment),

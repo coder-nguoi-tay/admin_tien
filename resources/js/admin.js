@@ -3,7 +3,9 @@ import { createApp } from 'vue'
 
 const app = createApp({})
 
-import test from './components/ExampleComponent.vue'
-app.component('test', test)
+import chartPayment from './components/ExampleComponent.vue'
+app.component('chart-payment', chartPayment)
+import chartNewJob from './components/ExampleComponent.vue'
+app.component('chart-new-job', chartNewJob)
 
 app.mount('#app')

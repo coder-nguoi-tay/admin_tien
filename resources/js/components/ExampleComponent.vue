@@ -31,10 +31,8 @@ export default {
   name: "BarChart",
   components: { Line },
   props: ["data"],
-  created() {},
-  mounted() {
-    this.countPaymentMoth1 = this.data.countPaymentMoth1;
-    this.countPaymentMoth7 = this.data.countPaymentMoth7;
+  created() {
+    console.log(this.data);
   },
   data() {
     return {
@@ -54,7 +52,7 @@ export default {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
         datasets: [
           {
-            label: "Doanh thu",
+            label: this.data.payment == 1 ? "Bài  viết" : "Doanh thu",
             lineTension: 0.3,
             backgroundColor: "rgba(78, 115, 223, 0.05)",
             borderColor: "rgba(78, 115, 223, 1)",
@@ -67,18 +65,18 @@ export default {
             pointHitRadius: 10,
             pointBorderWidth: 2,
             data: [
-              this.countPaymentMoth1,
-              this.countPaymentMoth2,
-              this.countPaymentMoth3,
-              this.countPaymentMoth4,
-              this.countPaymentMoth5,
-              this.countPaymentMoth6,
-              this.countPaymentMoth7,
-              this.countPaymentMoth8,
-              this.countPaymentMoth9,
-              this.countPaymentMoth10,
-              this.countPaymentMoth11,
-              this.countPaymentMoth12,
+              this.data.countPaymentMoth1,
+              this.data.countPaymentMoth2,
+              this.data.countPaymentMoth3,
+              this.data.countPaymentMoth4,
+              this.data.countPaymentMoth5,
+              this.data.countPaymentMoth6,
+              this.data.countPaymentMoth7,
+              this.data.countPaymentMoth8,
+              this.data.countPaymentMoth9,
+              this.data.countPaymentMoth10,
+              this.data.countPaymentMoth11,
+              this.data.countPaymentMoth12,
             ],
           },
         ],
