@@ -30,4 +30,8 @@ class jobAttractive extends Model
     {
         return LeverPackageCompany::getDescription($this->lever_package);
     }
+    public function timeofer()
+    {
+        return $this->hasOne(Timeoffer::class, 'id', 'lever_package');
+    }
 }

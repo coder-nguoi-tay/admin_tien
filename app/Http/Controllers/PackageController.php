@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\jobAttractive;
 use App\Models\LeverPackage;
 use App\Models\Packageoffer;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $package = Packageoffer::query()->with('timeofer')->get();
+        $package = jobAttractive::query()->with('timeofer')->get();
         return view('package.index', [
             'package' => $package,
             'title' => 'Quản lý gói cước',
@@ -52,12 +53,13 @@ class PackageController extends Controller
             'describe' => ['required'],
         ]);
         try {
-            $request['time_offer_id'] =  $request->lever_package_id;
-            $package = new Packageoffer();
+            $request['lever_package'] =  $request->lever_package_id;
+            $package = new jobAttractive();
             $package->fill($request->all());
             $package->save();
             return redirect()->route('package.index');
         } catch (\Throwable $th) {
+            dd($th->getMessage());
             DB::rollBack();
             return back();
         }
@@ -73,9 +75,9 @@ class PackageController extends Controller
     {
         $lever = LeverPackage::query()->select('id', 'name')->get();
         return view('package.edit', [
-            'package' => Packageoffer::query()->find($id),
+            'package' => jobAttractive::query()->find($id),
             'lever' => $lever,
-            'title' => 'Sửa gói cước' . Packageoffer::query()->find($id)->name
+            'title' => 'Sửa gói cước' . jobAttractive::query()->find($id)->name
         ]);
     }
 
@@ -95,8 +97,8 @@ class PackageController extends Controller
             'describe' => ['required'],
         ]);
         try {
-            $request['time_offer_id'] =  $request->lever_package_id;
-            $package = Packageoffer::query()->find($id);
+            $request['lever_package'] =  $request->lever_package_id;
+            $package = jobAttractive::query()->find($id);
             $package->fill($request->all());
             $package->save();
             return redirect()->route('package.index');

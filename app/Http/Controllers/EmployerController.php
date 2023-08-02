@@ -16,7 +16,7 @@ class EmployerController extends Controller
      */
     public function index()
     {
-        $employer = Employer::query()->get();
+        $employer = Employer::query()->with('getUser')->get();
         return view('employer.index', [
             'title' => 'Danh sách nhà tuyển dụng',
             'employer' => $employer,

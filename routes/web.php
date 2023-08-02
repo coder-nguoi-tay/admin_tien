@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('login', LoginController::class);
+Route::resource('', LoginController::class);
 
-Route::middleware('auth')->group(function(){
+Route::middleware('CheckLogin')->group(function(){
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::resource('dashboard', DashboardController::class);
     

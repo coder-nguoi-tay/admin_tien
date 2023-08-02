@@ -15,6 +15,9 @@ class LoginController extends Controller
      */
     public function index()
     {
+        if(Auth::guard('admin')->check()){
+            return redirect()->route('dashboard.index');
+        }
         return view('login.login', [
             'title' => 'Đăng nhập'
         ]);
@@ -29,7 +32,7 @@ class LoginController extends Controller
     public function store(LoginRequest $request)
     {
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], true)) {
-            return route('dashboard.index');
+            return redirect()->route('dashboard.index');
         }
         return back();
     }
