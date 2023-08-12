@@ -22,9 +22,9 @@
                                 <tr class="text-center">
                                     <td>#{{ $key + 1 }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td><img src="{{ $item->imagesAccuracy }}" width="200" alt=""></td>
+                                    <td><img src="{{ env('IMAGE') . $item->imagesAccuracy }}" width="200" alt="">
+                                    </td>
                                     <td>
-
                                         @if ($item->status == 0)
                                             <button class="badge bg-secondary text-center"
                                                 style="border: 1px solid #b1b7c1;font-size: 12px;padding: 5px 10px;"

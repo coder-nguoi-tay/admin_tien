@@ -24,7 +24,7 @@
                                     <td>#{{ $key + 1 }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td><img src="{{ $item->images }}" width="200" alt=""></td>
+                                    <td><img src="{{ env('IMAGE') . $item->images }}" width="200" alt=""></td>
                                     <td><a href="{{ route('seeker.edit', $item->id) }}"><i class="fas fa-edit"></i></a></td>
                                 </tr>
                             @endforeach

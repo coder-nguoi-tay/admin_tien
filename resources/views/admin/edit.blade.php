@@ -10,12 +10,12 @@
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Tên nhân viên</label>
-                    <input type="text" name="name" value="{{ $admn->name }}" class="form-control"
+                    <input type="text" name="name" value="{{ $admin->name }}" class="form-control"
                         placeholder="Tên ứng viên">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="text" name="email" value="{{ $admn->email }}" class="form-control"
+                    <input type="text" name="email" value="{{ $admin->email }}" class="form-control"
                         placeholder="Email">
                 </div>
                 <div class="mb-3">

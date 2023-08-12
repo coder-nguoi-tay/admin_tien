@@ -3,7 +3,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.index') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <img src="{{ env('IMAGE') . '/home/images/resource/logo.png' }}" alt="">
         </div>
         <div class="sidebar-brand-text mx-3">{{ Auth::guard('admin')->user()->name }}</div>
     </a>
